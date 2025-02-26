@@ -161,15 +161,15 @@ class Magazine:
     #update count for each article of that magazine
     #.get to retrieve from dictionary
     #return MAX (the MOST articles)
-    def top_publisher():
+    def top_publisher(cls):
         if not Article.all:
             return None
     
         magazine_counts = {}
     
-    for article in Article.all:
-        if article._magazine not in magazine_counts:
-            magazine_counts[article._magazine] = 0
-        magazine_counts[article._magazine] += 1
+        for article in Article.all:
+            if article._magazine not in magazine_counts:
+                magazine_counts[article._magazine] = 0
+                magazine_counts[article._magazine] += 1
 
-    return max(magazine_counts, key=magazine_counts.get) if magazine_counts else None
+        return max(magazine_counts, key=magazine_counts.get) if magazine_counts else None
